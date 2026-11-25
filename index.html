@@ -183,6 +183,422 @@ header .brand{align-items:center}
 .chapter-picker summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px}.chapter-picker summary::-webkit-details-marker{display:none}.chapter-summary-text{display:flex;flex-direction:column;gap:4px;min-width:0}.chapter-summary-title{font-size:12px;color:#28505c;font-weight:800}.chapter-count{font-size:11px;color:#617c84;font-weight:700}.chapter-toggle{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #cfe0de;border-radius:999px;background:#fff;color:#184853;font-size:11px;font-weight:800;white-space:nowrap}.chapter-toggle::after{content:'▾';font-size:12px;line-height:1;transition:transform .2s ease}.chapter-picker[open] .chapter-toggle::after{transform:rotate(180deg)}
 .chapter-panel{padding:0 16px 16px;border-top:1px solid #e3efed}.chapter-controls{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:12px}.chapter-controls input{flex:1;min-width:180px;padding:10px 12px;border:1px solid #c9dddb;background:white;border-radius:10px;color:#153f49}.chapter-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:220px;overflow:auto;gap:6px;margin-top:10px}.chapter-option{border:1px solid #dce8e7;border-radius:11px;background:#fff;padding:8px 10px;text-align:left;display:flex;align-items:center;gap:8px;font-size:11px;line-height:1.25;color:#254954;cursor:pointer;min-width:0}.chapter-option.chosen{background:#e6f6f1;border-color:#65bba4}.chapter-option .dot{width:9px;height:9px;flex:none;border-radius:50%}.chapter-option span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.chapter-option b{font-size:10px;white-space:nowrap}.chapter-chosen{font-size:11px;color:#4d7476;margin-top:8px}.chapter-chosen:empty{display:none}
 @media(max-width:650px){.chapter-picker summary{align-items:flex-start;flex-direction:column}.chapter-options{grid-template-columns:1fr}.chapter-toggle{align-self:flex-start}}
+
+/* V41: selector entre dos visualizaciones, ambas en la misma tarjeta */
+.relations-switch{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.relations-switch .btn{padding:10px 15px;font-weight:750}
+#relacionesPanel #destinosFijos .destPanel{grid-template-columns:minmax(0,1.65fr) minmax(220px,.75fr)}
+#relacionesPanel #destinosFijos .destMap svg{min-height:330px}
+@media(max-width:750px){#relacionesPanel #destinosFijos .destPanel{grid-template-columns:1fr}}
+
+/* ========================================================
+   V42 · Rediseño editorial institucional — sólo apariencia.
+   Conserva identificadores, eventos, SVG, datos y JavaScript.
+   ======================================================== */
+:root{
+  --navy:#063c50;
+  --navy2:#0a5367;
+  --mint:#188b80;
+  --ink:#193746;
+  --muted:#657b83;
+  --bg:#f4f7f7;
+  --panel:#fff;
+  --border:#dbe5e6;
+  --rose:#d67a96;
+  --soft:#f7f9f9;
+}
+html{scroll-behavior:smooth}
+body{
+  background:#f4f7f7;
+  color:#193746;
+  font:14px/1.52 "Aptos","Segoe UI",Arial,sans-serif;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+button,input,select{font-family:inherit;letter-spacing:normal}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{
+  outline:2px solid #178e89;outline-offset:2px;
+}
+header{
+  background:linear-gradient(112deg,#07394a 0%,#07485b 54%,#0b5a6b 100%);
+  padding:27px 32px 28px;
+  box-shadow:none;
+  border-bottom:3px solid #b3d2d0;
+}
+header .brand{
+  max-width:1580px;
+  gap:25px;
+  align-items:center;
+}
+header .bid-logo{
+  background:#fff;
+  box-shadow:none;
+  border-radius:9px;
+  padding:12px 15px;
+  min-height:69px;
+}
+header .bid-logo img{width:116px}
+header .title{
+  font-size:clamp(24px,2.15vw,31px);
+  line-height:1.18;
+  letter-spacing:-.55px;
+  font-weight:600;
+  margin:0 0 8px;
+  color:#fff;
+}
+header .subhead{
+  max-width:1050px;
+  font-size:12.5px;
+  color:#d4e5e7;
+  line-height:1.6;
+  letter-spacing:.02px;
+}
+.wrap{max-width:1640px;padding:25px 27px 46px}
+.toolbar{
+  margin-bottom:20px;
+  gap:12px;
+  align-items:center;
+}
+.tabs{
+  background:#eaf0f1;
+  border:1px solid #e1e9ea;
+  border-radius:12px;
+  padding:4px;
+  gap:3px;
+  box-shadow:none;
+}
+.tab{
+  color:#57717a;
+  border-radius:9px;
+  font-size:12.5px;
+  font-weight:650;
+  padding:10px 18px;
+  transition:background .18s,color .18s;
+}
+.tab.active{
+  color:#0b4d5f;
+  background:#fff;
+  box-shadow:0 1px 4px #0f384412;
+}
+.tab:not(.active):hover{color:#0b4d5f;background:#f8fbfb}
+.group{gap:7px;align-items:center}
+.btn{
+  background:#fff;
+  color:#2b5260;
+  border:1px solid #cfdcde;
+  border-radius:9px;
+  padding:10px 13px;
+  font-size:12px;
+  line-height:1.25;
+  font-weight:620;
+  box-shadow:none;
+  transition:border-color .15s,background .15s,color .15s;
+}
+.btn:hover{background:#f3f8f7;border-color:#92bdbb;color:#06495c}
+.btn.primary{background:#07465a;border-color:#07465a;color:#fff}
+.btn.primary:hover{background:#0c586e;border-color:#0c586e}
+.layout{grid-template-columns:minmax(0,1.36fr) minmax(340px,.64fr);gap:19px}
+.col{gap:19px;min-width:0}
+.panel{
+  border:1px solid #dbe5e6;
+  border-radius:15px;
+  box-shadow:0 3px 16px rgba(8,53,70,.035);
+  overflow:hidden;
+  background:#fff;
+}
+.pad{padding:21px 23px}
+.head{align-items:flex-start;gap:15px}
+.head h2,.panel h2{
+  color:#153d4b;
+  font-size:18px;
+  font-weight:680;
+  line-height:1.32;
+  letter-spacing:-.25px;
+}
+.head .sub,.sub{
+  font-size:11.5px;
+  line-height:1.56;
+  color:#73858b;
+  margin-top:5px;
+}
+/* Las insignias decorativas no aportan información al panel */
+.badge{display:none!important}
+.cardtitle{font-size:14px;font-weight:700;color:#204b59;margin-bottom:14px}
+.filterRow{
+  background:#f7faf9;
+  border:1px solid #e0e9e8;
+  padding:15px 17px;
+  border-radius:11px;
+  gap:15px;
+  margin-top:17px;
+}
+.filterGroup{gap:7px}
+.filterGroup>b{
+  font-size:11px;
+  color:#486a75;
+  font-weight:700;
+}
+.filterGroup select,.filterGroup #roadPickerBtn{
+  border:1px solid #cbdedd;
+  border-radius:9px;
+  background:#fff;
+  color:#184857;
+  font-size:12px;
+  font-weight:630;
+  min-height:39px;
+  box-shadow:none;
+}
+.filterHint{color:#789096;font-size:11px;padding:0 0 6px}
+.roadPicker{
+  border:1px solid #d4e4e2;
+  border-radius:11px;
+  box-shadow:0 16px 36px rgba(13,56,67,.14);
+}
+.roadOpt{border-radius:7px;padding:8px 9px}
+.roadOpt:hover{background:#eef6f5}
+.mapwrap{background:#f8fbfb}
+.mapOverlayTools{
+  border:1px solid #dfe8e9;
+  border-radius:10px;
+  padding:7px 10px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 5px 18px rgba(10,50,65,.08);
+  color:#315966;
+  font-size:11px;
+}
+.legendAAL{
+  background:#fff;
+  border-top:1px solid #e8eeee;
+  padding:14px 18px;
+  font-size:11px;
+  line-height:1.6;
+  gap:11px;
+}
+.legendAAL b{color:#224957;font-size:11px;font-weight:700}
+.kpis{gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.kpi{
+  border:1px solid #e0e8e8;
+  border-radius:11px;
+  padding:20px 16px;
+  background:#fff;
+  box-shadow:none;
+  min-width:0;
+}
+.kpi small{
+  color:#6f858d;
+  font-size:10px;
+  letter-spacing:.85px;
+  font-weight:730;
+}
+.kpi strong{
+  color:#0b5264;
+  font-size:clamp(23px,2.3vw,31px);
+  font-weight:720;
+  letter-spacing:-.4px;
+  margin-top:7px;
+  line-height:1.16;
+  font-variant-numeric:tabular-nums;
+}
+.kpi.rose strong{color:#cd708f}
+.kpi em{color:#889b9f;font-size:10.5px;margin-top:9px}
+/* Visor por categoría: pestañas discretas, espacio para etiquetas */
+#view-vias .panel .group:has([data-chart]){gap:5px;margin-bottom:16px!important}
+#view-vias [data-chart]{font-size:12px;padding:9px 13px}
+#view-vias [data-chart].primary{color:#fff}
+.barbg{height:8px;background:#edf1f1}
+.barrow .head{gap:10px;margin-bottom:6px}
+.barrow .head b{color:#274e5d;font-size:11px;white-space:nowrap}
+.bars{gap:14px}
+.empty{
+  border:1px dashed #d9e5e5;
+  background:#fafcfc;
+  color:#71868d;
+  border-radius:11px;
+  padding:23px;
+}
+.hint{
+  border:1px solid #e1eaea;
+  background:#f8fbfa;
+  color:#667f86;
+  border-radius:10px;
+  line-height:1.55;
+}
+/* Gráfico de longitud vial */
+.impact-card{
+  background:#fff;
+  border-color:#e2e9e9;
+  border-radius:12px;
+  box-shadow:none;
+}
+#view-vias .impact-grid{padding:0 18px 18px;gap:14px}
+/* Selector de relaciones: botones unificados con las otras pestañas */
+.relations-switch{
+  gap:4px;
+  display:inline-flex;
+  padding:4px;
+  border:1px solid #e0e9e9;
+  background:#f2f6f6;
+  border-radius:11px;
+  margin-top:15px;
+}
+.relations-switch .btn{
+  border-color:transparent;
+  background:transparent;
+  border-radius:8px;
+  padding:10px 16px;
+}
+.relations-switch .btn.primary{
+  background:#fff;
+  color:#0c5162;
+  border-color:#e5eded;
+  box-shadow:0 1px 4px #132c3410;
+}
+.flowWrap,.storyWrap{padding:0 18px 18px}
+.flowWrap svg,.storyWrap svg{
+  background:#fff;
+  border:1px solid #e5eded;
+  border-radius:12px;
+}
+/* Destinos: lectura espacial limpia, valores en lista de alta legibilidad */
+.destPanel{gap:17px;margin-top:15px}
+.destMap{background:#f9fbfc;border:1px solid #e1e9eb;border-radius:11px}
+.destLegend{gap:6px}
+.destItem{background:#f7f9f9;border:1px solid transparent;border-radius:8px;padding:10px 11px}
+.destItem:hover,.destItem.active{background:#eff7f5;border-color:#a4cbc2}
+.destText strong{font-size:11.5px;color:#254b58}
+.destText small{font-size:10.5px}
+.destPercent{font-size:12px;color:#0a4c5c}
+.destFooter{background:#f8faf9;border:1px solid #e5eceb;border-radius:10px;color:#758b92;padding:12px 14px}
+.destHeadline b{font-size:14px;font-weight:690}
+#destinosFijos .destZoomControls{border-radius:10px;box-shadow:0 4px 14px #102e3d12}
+#destinosFijos .destFocusControls button{border-radius:9px}
+/* Cadenas: controles y opciones de selección ordenados */
+.pill{
+  border:1px solid #dce6e5;
+  border-radius:9px;
+  padding:9px 12px;
+  font-size:11.5px;
+  font-weight:620;
+  background:#fff;
+  color:#3b606c;
+}
+.pill:hover{background:#f5f9f8}
+.pill.active{background:#eaf5f1;border-color:#84bdb0;color:#0c5b5d}
+.chain-tools{gap:10px;margin-top:16px}
+.chain-modes{background:#f1f5f5;border-color:#e0e9e9;border-radius:10px}
+.chain-mode{border-radius:7px;font-size:11.5px}
+.chain-mode.active{background:#0b5161;color:#fff}
+.chain-threat-label{color:#5c7881}
+.chain-guidance{background:#f8faf9;border:1px solid #e4eceb;color:#73878f;border-radius:9px}
+.chapter-picker{
+  background:#fff;
+  border:1px solid #dbe6e5;
+  border-radius:11px;
+  margin:14px 0 7px;
+}
+.chapter-picker summary{padding:15px 17px}
+.chapter-summary-title{font-size:12px;color:#245160;font-weight:710}
+.chapter-count{font-size:10.8px;color:#798d92}
+.chapter-toggle{border-radius:8px;font-size:11px;background:#f6f9f9}
+.chapter-panel{border-top:1px solid #e5eeee}
+.chapter-option{border-color:#e1e9e9;border-radius:8px;padding:10px;font-size:11px}
+.chapter-option.chosen{background:#edf7f4;border-color:#8dbfb5}
+.chain-map-shell{background:#f9fcfc;border-top:1px solid #edf1f1}
+.chain-map-footer{background:#fff;border-top:1px solid #edf1f1;color:#7a9096}
+.chain-map-controls{border-radius:10px;box-shadow:0 3px 12px #153e4818}
+.chain-segment{background:#fff;border-color:#e1e9e9;border-radius:9px}
+.chain-segment:hover,.chain-segment.active{background:#edf6f3;border-color:#9ecbbd}
+.miniCard{background:#fff;border:1px solid #e0e8e8;border-radius:11px;padding:16px}
+.miniCard b{font-size:11.5px;font-weight:700;color:#41616b}
+.miniCard .big{font-size:24px;color:#0c5264;font-variant-numeric:tabular-nums}
+.switchInfo{gap:11px}
+#view-cadenas .barrow{padding-bottom:3px}
+.tooltip{border-radius:9px;box-shadow:0 9px 27px #173d4d26}
+@media(min-width:1450px){.wrap{padding-left:36px;padding-right:36px}}
+@media(max-width:1100px){.layout{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:750px){
+ header{padding:23px 18px}header .brand{gap:13px;align-items:flex-start}header .bid-logo{min-height:0;padding:8px}header .bid-logo img{width:86px}header .title{font-size:21px;line-height:1.27}header .subhead{font-size:11px}
+ .wrap{padding:15px 12px 28px}.panel{border-radius:12px}.pad{padding:17px 15px}.toolbar{gap:10px}.tabs{width:100%}.tab{flex:1;padding:10px 8px;font-size:11px}
+ .group{width:100%;gap:6px}.group .btn{padding:9px 10px;font-size:11px}
+ .layout,.col{gap:13px}.filterRow{padding:13px}.filterHint{width:100%;padding:0}
+ .kpi{padding:16px 12px}.kpi strong{font-size:23px}.legendAAL{padding:11px 13px}
+ .relations-switch{display:flex}.relations-switch .btn{flex:1;font-size:11px;padding:9px}
+ .destPanel{grid-template-columns:1fr}.flowWrap,.storyWrap{padding:0 10px 12px}
+ .chain-tools{align-items:stretch}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* V44. Ajuste puntual del resumen de cadenas; el resto se mantiene igual a V42. */
+#view-cadenas .chain-summary-refined>.pad{
+  padding:20px 21px 19px;
+}
+#view-cadenas .chain-summary-refined .head h2{
+  font-size:17px;
+  letter-spacing:-.25px;
+}
+#view-cadenas .chain-summary-refined .head .sub{
+  font-size:11px;
+  line-height:1.45;
+  margin-top:4px;
+}
+#view-cadenas .chain-summary-refined .switchInfo{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin-top:15px;
+}
+#view-cadenas .chain-summary-refined .miniCard{
+  min-width:0;
+  padding:12px 13px;
+  border-radius:9px;
+  border:1px solid #e1e9e9;
+  background:#fbfcfc;
+}
+#view-cadenas .chain-summary-refined .miniCard b{
+  font-size:10.5px;
+  line-height:1.35;
+  color:#5d747b;
+  font-weight:700;
+  margin-bottom:6px;
+}
+#view-cadenas .chain-summary-refined .miniCard .big{
+  font-size:clamp(19px,1.85vw,23px);
+  font-weight:740;
+  line-height:1.13;
+  letter-spacing:-.35px;
+  overflow-wrap:anywhere;
+  color:#0a5262;
+}
+#view-cadenas .chain-summary-refined .miniCard .small{
+  margin-top:5px;
+  font-size:10px;
+  line-height:1.35;
+  color:#82959b;
+}
+#view-cadenas .chain-summary-refined #chainNarrative{
+  padding:10px 12px;
+  font-size:11px;
+  line-height:1.45;
+  border-radius:9px;
+  margin-top:10px!important;
+}
+#view-cadenas .chain-summary-refined #chainSegmentDetail{
+  margin-top:9px;
+  padding:10px 12px;
+  font-size:11px;
+  line-height:1.45;
+  background:#fff;
+  border-color:#dce8e8;
+  border-radius:9px;
+}
+@media(max-width:440px){
+  #view-cadenas .chain-summary-refined .switchInfo{grid-template-columns:1fr 1fr;gap:7px}
+  #view-cadenas .chain-summary-refined .miniCard{padding:10px}
+  #view-cadenas .chain-summary-refined .miniCard .big{font-size:19px}
+}
+
 </style></head><body>
 <header><div class="brand"><div class="bid-logo"><img src="data:image/webp;base64,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" alt="Logotipo BID"></div><div><div class="title">Módulo de Cadenas de Valor y Riesgo Logístico – Costa Rica</div><div class="subhead">Visualización exploratoria de las principales cadenas de valor, corredores viales, aduanas, destinos internacionales y pérdidas logísticas asociadas a la modelación del BSA en Costa Rica.</div></div></div></header>
 <div class="wrap">
@@ -208,8 +624,14 @@ header .brand{align-items:center}
  </div>
           <div class="pad" style="padding-top:10px"><div class="legend legendAAL"><b>Pérdida anual promedio total (AAL)</b><span><i style="background:#ed202d"></i>Extrema (&gt;40.000)</span><span><i style="background:#f48517"></i>Muy alta (5.000–40.000)</span><span><i style="background:#e9e900"></i>Alta (500–5.000)</span><span><i style="background:#98cf20"></i>Media (50–500)</span><span><i style="background:#37a928"></i>Baja (0–50)</span><span><i style="background:#cbd0d2"></i>Sin pérdida (0)</span></div></div>
         </section>
-        <section class="panel"><div class="pad"><div class="head"><div><h2>Relaciones de la selección</h2><span class="sub">Capítulos arancelarios → carreteras y carreteras → aduanas. Mismos datos que el ranking.</span></div><span class="badge">LECTURA</span></div></div><div class="flowWrap"><svg id="flowRoadSvg" viewBox="0 0 980 390"></svg></div></section>
-        <section class="panel" id="destinosFijos"><div class="pad"><div class="head"><div><h2>Destinos internacionales</h2><span class="sub">Mapa de destinos. Acerca o arrastra para explorar; los círculos conservan su tamaño al hacer zoom.</span></div><span class="badge">DESTINOS</span></div><div id="destinationsFixed" class="destinations-view" style="margin-top:16px"><div class="empty">Selecciona uno o varios tramos para ver los destinos internacionales.</div></div></div></section>
+        <section class="panel" id="relacionesPanel"><div class="pad"><div class="head"><div><h2>Relaciones de la selección</h2><span class="sub" id="relationSubtitle">Capítulos arancelarios → carreteras → aduanas. Selecciona una vista para cambiar lo que se muestra.</span></div><span class="badge">LECTURA</span></div>
+<div class="relations-switch" role="tablist" aria-label="Cambiar visualización de relaciones">
+<button type="button" class="btn primary" id="showRelations" role="tab" aria-selected="true">Relaciones logísticas</button>
+<button type="button" class="btn" id="showDestinations" role="tab" aria-selected="false">Destinos internacionales</button>
+</div></div>
+<div class="flowWrap" id="relationsContent"><svg id="flowRoadSvg" viewBox="0 0 980 390" aria-label="Relaciones entre capítulos arancelarios, carreteras y aduanas"></svg></div>
+<div id="destinosFijos" class="hide" style="padding:0 16px 16px"><div id="destinationsFixed" class="destinations-view"><div class="empty">Selecciona tramos para explorar los destinos internacionales.</div></div></div>
+</section>
       </div>
       <div class="col">
         <section class="panel"><div class="pad"><div class="head"><div><h2>Resumen de la selección</h2><span class="sub">Pérdida modelada y extensión vial afectada para la selección y amenaza activas.</span></div><span class="badge">KPIs</span></div>
@@ -259,7 +681,7 @@ header .brand{align-items:center}
         <section class="panel"><div class="pad"><div class="head"><div><h2>Tramos críticos de las cadenas seleccionadas</h2><span class="sub">Ordenados por AAL atribuida a la cadena. Haz clic para acercarte al tramo.</span></div><span class="badge">PRIORIDADES</span></div><div id="criticalChainSegments" class="chain-segment-list"></div></div></section>
       </div>
       <div class="col">
-        <section class="panel"><div class="pad"><div class="head"><div><h2>Resumen de las cadenas</h2><span class="sub">Pérdida atribuida a sus tramos, carretera de mayor AAL y aduana relacionada.</span></div><span class="badge">SÍNTESIS</span></div>
+        <section class="panel chain-summary-refined"><div class="pad"><div class="head"><div><h2>Resumen de las cadenas</h2><span class="sub">Pérdida atribuida a sus tramos, carretera de mayor AAL y aduana relacionada.</span></div><span class="badge">SÍNTESIS</span></div>
           <div class="switchInfo"><div class="miniCard"><b>AAL de la cadena</b><div class="big" id="cAAL">—</div><div class="small">Pérdida anual promedio</div></div><div class="miniCard"><b>Participación sobre la base</b><div class="big" id="cPct">—</div><div class="small">Sobre el AAL de la red</div></div><div class="miniCard"><b>Carretera principal</b><div class="big" id="cRoad">—</div><div class="small" id="cRoadSub">Selecciona una cadena</div></div><div class="miniCard"><b>Aduana principal</b><div class="big" id="cCustom">—</div><div class="small" id="cCustomSub">Selecciona una cadena</div></div></div>
           <div id="chainNarrative" class="hint" style="margin-top:12px">Selecciona una cadena para estudiar sus tramos.</div>
           <div id="chainSegmentDetail" class="chain-selected-detail">Haz clic en una carretera destacada para conocer el ID del tramo, su pérdida y la amenaza dominante.</div>
@@ -790,7 +1212,21 @@ function renderImpacts(){
  targetK.innerHTML=`<div class="impact-bars">${data.map(c=>bar(c,c.km,maxKm,impactFmt(c.km,1)+' km')).join('')}</div><p class="impact-foot">Extensión total seleccionada: ${impactFmt(kmTotal,1)} km · ${selected.size} tramos sin duplicados. Clasificación según AAL ${activeThreatName().toLowerCase()}.</p>`;
 }
 
-function renderAll(){ switchView(); renderMap(); renderImpacts(); renderFlowForSelection(); renderResults(); renderChainPills(); renderChainMap(); renderChainFlow(); renderChainBars(); renderChainSummary(); }
+let relationView='relations';
+function updateRelationView(){
+ const showMap=relationView==='destinations';
+ $('relationsContent').classList.toggle('hide',showMap);
+ $('destinosFijos').classList.toggle('hide',!showMap);
+ $('showRelations').classList.toggle('primary',!showMap);
+ $('showDestinations').classList.toggle('primary',showMap);
+ $('showRelations').setAttribute('aria-selected',String(!showMap));
+ $('showDestinations').setAttribute('aria-selected',String(showMap));
+ $('relationSubtitle').textContent=showMap?'Mapa y ranking de destinos vinculados a los tramos seleccionados.':'Capítulos arancelarios → carreteras → aduanas. Mismos datos que el ranking.';
+ if(showMap)renderDestinationMap(selectedSummary());
+}
+$('showRelations').addEventListener('click',()=>{relationView='relations';updateRelationView()});
+$('showDestinations').addEventListener('click',()=>{relationView='destinations';updateRelationView()});
+function renderAll(){ switchView(); renderMap(); renderImpacts(); renderFlowForSelection(); renderResults(); renderChainPills(); renderChainMap(); renderChainFlow(); renderChainBars(); renderChainSummary(); updateRelationView(); }
 // controls
  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{view=b.dataset.view; switchView(); renderAll()});
  $('allResults').onclick=()=>{pickedChapters.clear();chainFocus='all';selected=new Set(F.map(f=>f.properties.id)); overview=true;last=null;chainFocus='all';view='vias';renderAll()}; $('clear').onclick=()=>{pickedChapters.clear();chainFocus='all';selected=new Set(F.map(f=>f.properties.id));overview=true;last=null;chainFocus='all';activeThreat='total';$('threatSelect').value='total';$('threatChains').value='total';roadChecks.clear();$('roadSearch').value='';$('roadPickerCount').textContent='(0)';paintRoadOptions();renderAll()}; $('critical').onclick=()=>{selected=new Set([879,1232,882,1233,880]);overview=false; last=879; view='vias'; renderAll()};
