@@ -750,7 +750,9 @@ const logisticsPlaces=[
  {name:'Puerto Caldera',type:'port',lon:-84.7269,lat:9.9114,dx:-42,dy:29},
  {name:'Puerto Limón',type:'port',lon:-83.0328,lat:9.9929,dx:15,dy:-21},
  {name:'Aeropuerto Juan Santamaría',type:'airport',lon:-84.2088,lat:9.9939,dx:17,dy:-20},
- {name:'Aeropuerto de Liberia',type:'airport',lon:-85.5444,lat:10.5933,dx:18,dy:-20}
+ {name:'Aeropuerto de Liberia',type:'airport',lon:-85.5444,lat:10.5933,dx:18,dy:-20},
+ {name:'Peñas Blancas',type:'border',lon:-85.6140,lat:11.2130,dx:16,dy:-22},
+ {name:'Paso Canoas',type:'border',lon:-82.9640,lat:8.5360,dx:14,dy:-22}
 ];
 const namedNationalRoads=[32,17,34,1,4,935];
 function mapRoadLabelPoints(){
@@ -767,9 +769,12 @@ function decorateGeo(svg,box,isChain=false){
  for(const place of logisticsPlaces){
   const [x,y]=proj([place.lon,place.lat]);
   const root=el('g',{transform:`translate(${x} ${y}) scale(${scale})`});
-  const symbol=place.type==='port'?'⚓':'✈';
-  root.appendChild(el('circle',{cx:0,cy:0,r:11.5,fill:'#fff','fill-opacity':.98,stroke:place.type==='port'?'#218ca1':'#183c55','stroke-width':1.7}));
-  const icon=el('text',{x:0,y:4.5,fill:place.type==='port'?'#137b93':'#153f57','font-size':14,'text-anchor':'middle','font-weight':750});icon.textContent=symbol;root.appendChild(icon);
+  const isPort=place.type==='port', isAirport=place.type==='airport', isBorder=place.type==='border';
+  const symbol=isPort?'⚓':(isAirport?'✈':'⇄');
+  const stroke=isPort?'#218ca1':(isAirport?'#183c55':'#6c5a9a');
+  const fill=isPort?'#137b93':(isAirport?'#153f57':'#6c5a9a');
+  root.appendChild(el('circle',{cx:0,cy:0,r:11.5,fill:'#fff','fill-opacity':.98,stroke, 'stroke-width':1.7}));
+  const icon=el('text',{x:0,y:4.5,fill,'font-size':14,'text-anchor':'middle','font-weight':750});icon.textContent=symbol;root.appendChild(icon);
   const tag=place.name.replace('Aeropuerto Juan Santamaría','Aeropuerto SJO').replace('Aeropuerto de Liberia','Aeropuerto LIR');
   const tx=place.dx,ty=place.dy;
   root.appendChild(el('rect',{x:tx-4,y:ty-13,width:Math.max(86,tag.length*6.4+10),height:19,rx:7,fill:'#ffffff','fill-opacity':.94,stroke:'#dce7e7','stroke-width':.7}));
@@ -1365,7 +1370,7 @@ function renderChainMap(){const svg=$('chainMapSvg');svg.replaceChildren();rende
  hit.addEventListener('mousemove',e=>tip(e,`<b>ID_TRAMO ${id} · RN ${p.road}</b><br>${esc(currentChainLabel())}<br>AAL atribuida: ${compact(val)}<br>AAL del tramo: ${compact(metric(p))}<br>Afectación: ${severity.name}`));hit.addEventListener('mouseleave',hideTip);svg.appendChild(hit);
  if(id===chainClickedSegment){svg.appendChild(el('path',{d,fill:'none',stroke:'#fff','stroke-width':thick+5,'pointer-events':'none'}));svg.appendChild(el('path',{d,fill:'none',stroke:lineColor,'stroke-width':thick+1.5,'pointer-events':'none'}))}
  }
- for(const [lon,lat,name] of [[-83.0345,9.99,'Limón'],[-84.8285,9.972,'Caldera'],[-85.614,11.213,'Peñas Blancas'],[-82.964,8.536,'Paso Canoas']]){const [x,y]=proj([lon,lat]);svg.appendChild(el('circle',{cx:x,cy:y,r:10,fill:'#fff',stroke:'#0d6373','stroke-width':1.5,'pointer-events':'none'}));svgText(svg,x,y+4,'⚓',12,true,'#0d6373','middle')}
+
  svgText(svg,475,26,`${currentChainLabel()} · ${compact(chainContext(current).aal)} AAL`,13,true,'#184855','middle');
  chainSetZoom();$('chainMapLegend').innerHTML=chainDisplayMode==='risk'?'Severidad por tramo: rojo extrema · naranja muy alta · amarillo alta · verde media/baja':'Colores por capítulo dominante activo · grosor por AAL atribuida · geometría vial real';
  $('chainMapGuide').textContent=`${positive.length.toLocaleString('es-CO')} tramos asociados a ${currentChainLabel().toLowerCase()}. Clic sobre un tramo para consultar sus pérdidas.`;
