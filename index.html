@@ -599,6 +599,16 @@ header .subhead{
   #view-cadenas .chain-summary-refined .miniCard .big{font-size:19px}
 }
 
+
+.main-map-controls{position:absolute;left:15px;top:15px;z-index:4;display:flex;gap:3px;border:1px solid #d4e4e7;background:#ffffffee;padding:5px;border-radius:11px;box-shadow:0 3px 12px #173f4920}
+.main-map-controls button{border:1px solid #dfebeb;border-radius:8px;background:#fff;color:#14536b;font-size:19px;font-weight:750;min-width:36px;height:36px;cursor:pointer}
+.main-map-controls button:hover{background:#ecf7f6}
+@media(max-width:640px){.main-map-controls{top:60px;left:9px}}
+/* V45: cartografía y geometría vectorial, sin límites nacionales dibujados ni escala sintética. */
+#mapSvg,#chainMapSvg{shape-rendering:geometricPrecision}
+#mapSvg [data-layer="geo-decor"],#chainMapSvg [data-layer="geo-decor"]{pointer-events:none}
+#chainMapSvg{cursor:grab}
+#chainMapSvg:active{cursor:grabbing}
 </style></head><body>
 <header><div class="brand"><div class="bid-logo"><img src="data:image/webp;base64,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" alt="Logotipo BID"></div><div><div class="title">Módulo de Cadenas de Valor y Riesgo Logístico – Costa Rica</div><div class="subhead">Visualización exploratoria de las principales cadenas de valor, corredores viales, aduanas, destinos internacionales y pérdidas logísticas asociadas a la modelación del BSA en Costa Rica.</div></div></div></header>
 <div class="wrap">
@@ -618,6 +628,7 @@ header .subhead{
   <span class="filterHint" id="filterState">Sin selección · Toda la red visible</span>
 </div><div class="helpgrid"><div class="help"><b>1. Selecciona</b><div class="small">Haz clic en uno o varios tramos del mapa.</div></div><div class="help"><b>2. Interpreta</b><div class="small">A la derecha verás AAL, FOB asociado, cadenas y aduanas.</div></div><div class="help"><b>3. Simula</b><div class="small">Ajusta días de cierre y porcentaje afectado.</div></div></div></div>
           <div class="mapwrap">
+ <div class="main-map-controls"><button id="mainMapPlus" type="button" title="Acercar">+</button><button id="mainMapMinus" type="button" title="Alejar">−</button><button id="mainMapHome" type="button" title="Vista completa">⌂</button></div>
  <svg id="mapSvg" viewBox="0 0 950 620" aria-label="Mapa vial interactivo con base cartográfica abierta"></svg>
  <div class="mapOverlayTools" aria-label="Controles del mapa base"><label for="mapProvider">Fondo</label><select id="mapProvider" aria-label="Tipo de mapa base"><option value="open">Mapa abierto (OSM France)</option><option value="native">Mapa integrado</option></select><label for="baseOpacity">Transparencia</label><input id="baseOpacity" type="range" min="10" max="80" value="20" step="5" aria-label="Intensidad del mapa base"><output id="baseOpacityValue">20 %</output></div>
  <div class="mapAttribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> · <a href="https://www.openstreetmap.fr/" target="_blank" rel="noopener">OpenStreetMap France</a></div>
@@ -726,24 +737,58 @@ function chainNumbers(ids){return chains.map(c=>({...c,v:values('Capitulo Del Ar
 function selectedSummary(){let ids=[...selected],aal=0,river=0,quake=0,coast=0,routes=new Set(),rn=new Set(); for(const id of ids){let p=byId.get(id)?.properties; if(!p) continue; aal+=p.aal; river+=p.river; quake+=p.quake; coast+=p.coast; rn.add(p.road); p.routes.forEach(r=>routes.add(r))} let fob=0,shipments=0; for(const rid of routes){let q=routeMap.get(rid); if(q){fob+=q.fob; shipments+=q.shipments}} return {ids,aal:activeThreat==='total'?aal:activeThreat==='river'?river:activeThreat==='quake'?quake:coast,aalTotal:aal,river,quake,coast,routes,rn,fob,shipments} }
 function segmentChainValue(id,cid){return familyBySegment.get(id)?.get(cid)||0}
 
+// Mapa de base discreto: sin límites, etiquetas de países ni escala añadidos.
+// El proveedor OSM dibuja los topónimos; el polígono nacional solo es respaldo offline.
 function renderBaseMap(svg){
-  const bg=el('rect',{x:0,y:0,width:950,height:620,fill:'#e9f5f8'}); svg.appendChild(bg);
-  const defs=el('defs',{}); const grad=el('linearGradient',{id:'waterFade',x1:'0%',y1:'0%',x2:'100%',y2:'100%'});
-  const a=el('stop',{offset:'0%','stop-color':'#f4fafb'}),b=el('stop',{offset:'100%','stop-color':'#dff1f5'}); grad.appendChild(a);grad.appendChild(b);defs.appendChild(grad);svg.appendChild(defs);
-  bg.setAttribute('fill','url(#waterFade)');
-  for(const d of MAP_BASE.land)svg.appendChild(el('path',{d,fill:'#fcfdfd',stroke:'#b6cacf','stroke-width':1.05,'stroke-linejoin':'round'}));
-  for(const d of MAP_BASE.boundaries)svg.appendChild(el('path',{d,fill:'none',stroke:'#8da5ae','stroke-width':1.5,'stroke-dasharray':'5 4'}));
-  function label(x,y,txt,size=14,color='#8199a3',weight=650){let t=el('text',{x,y,fill:color,'font-size':size,'font-weight':weight,'letter-spacing':1.5,'pointer-events':'none'});t.textContent=txt;svg.appendChild(t)}
-  label(125,46,'NICARAGUA',13,'#8ca2a9',700);label(743,579,'PANAMÁ',13,'#8ca2a9',700);
-  label(734,192,'MAR CARIBE',14,'#6f9fb4',650);label(42,475,'OCÉANO PACÍFICO',13,'#6f9fb4',650);
-  const cities=[[-84.0907,9.9281,'SAN JOSÉ',5],[-83.0345,9.9913,'LIMÓN',5],[-85.4377,10.6346,'LIBERIA',4],[-84.8294,9.9779,'PUNTARENAS',4],[-83.9194,9.8644,'CARTAGO',3]];
-  for(const [lon,lat,name,r] of cities){const [x,y]=proj([lon,lat]);svg.appendChild(el('circle',{cx:x,cy:y,r,fill:'#fff',stroke:'#567f8b','stroke-width':1.6,'pointer-events':'none'}));label(x+10,y-7,name,10,'#4f737f',700)}
-  const [sx,sy]=proj([-85.8,8.38]);svg.appendChild(el('line',{x1:sx,y1:sy,x2:sx+80,y2:sy,stroke:'#516d79','stroke-width':1.5,'pointer-events':'none'}));
-  svg.appendChild(el('line',{x1:sx,y1:sy-3,x2:sx,y2:sy+3,stroke:'#516d79','stroke-width':1.5}));svg.appendChild(el('line',{x1:sx+80,y1:sy-3,x2:sx+80,y2:sy+3,stroke:'#516d79','stroke-width':1.5}));
-  label(sx,sy-10,'ESCALA APROX. 50 KM',9,'#6f8790',500);
-  label(910,42,'N ↑',15,'#567682',800);
+ svg.appendChild(el('rect',{x:0,y:0,width:950,height:620,fill:'#eaf5f7','pointer-events':'none'}));
+ if(mapProvider==='native')for(const d of MAP_BASE.land){
+  svg.appendChild(el('path',{d,fill:'#fcfdfd',stroke:'#c9d9d9','stroke-width':.65,'pointer-events':'none'}));
+ }
 }
-
+// Marcadores e identificadores permanecen vectoriales y conservan tamaño aparente durante el zoom.
+const logisticsPlaces=[
+ {name:'Puerto Caldera',type:'port',lon:-84.7269,lat:9.9114,dx:-42,dy:29},
+ {name:'Puerto Limón',type:'port',lon:-83.0328,lat:9.9929,dx:15,dy:-21},
+ {name:'Aeropuerto Juan Santamaría',type:'airport',lon:-84.2088,lat:9.9939,dx:17,dy:-20},
+ {name:'Aeropuerto de Liberia',type:'airport',lon:-85.5444,lat:10.5933,dx:18,dy:-20}
+];
+const namedNationalRoads=[32,17,34,1,4,935];
+function mapRoadLabelPoints(){
+ const groups=new Map();for(const f of F){const n=Number(f.properties.road);if(!namedNationalRoads.includes(n))continue;const val=f.properties.aal;
+  const arr=groups.get(n)||[];arr.push({f,val});groups.set(n,arr)}
+ return namedNationalRoads.map(n=>{const rows=groups.get(n)||[];rows.sort((a,b)=>b.val-a.val);return {road:n,feature:rows[0]?.f}}).filter(x=>x.feature);
+}
+const mainRoadAnchors=mapRoadLabelPoints();
+function decorateGeo(svg,box,isChain=false){
+ const old=svg.querySelector('[data-layer="geo-decor"]');if(old)old.remove();
+ const layer=el('g',{'data-layer':'geo-decor','pointer-events':'none'});svg.appendChild(layer);
+ const zoom=Math.max(.1,box.w/950), scale=zoom; // constant screen size for labels
+ const centerText=(g,x,y,t,fill='#174a59',size=11)=>{const txt=el('text',{x,y,fill,'font-size':size,'font-family':'Inter,Segoe UI,Arial,sans-serif','font-weight':750});txt.textContent=t;g.appendChild(txt)};
+ for(const place of logisticsPlaces){
+  const [x,y]=proj([place.lon,place.lat]);
+  const root=el('g',{transform:`translate(${x} ${y}) scale(${scale})`});
+  const symbol=place.type==='port'?'⚓':'✈';
+  root.appendChild(el('circle',{cx:0,cy:0,r:11.5,fill:'#fff','fill-opacity':.98,stroke:place.type==='port'?'#218ca1':'#183c55','stroke-width':1.7}));
+  const icon=el('text',{x:0,y:4.5,fill:place.type==='port'?'#137b93':'#153f57','font-size':14,'text-anchor':'middle','font-weight':750});icon.textContent=symbol;root.appendChild(icon);
+  const tag=place.name.replace('Aeropuerto Juan Santamaría','Aeropuerto SJO').replace('Aeropuerto de Liberia','Aeropuerto LIR');
+  const tx=place.dx,ty=place.dy;
+  root.appendChild(el('rect',{x:tx-4,y:ty-13,width:Math.max(86,tag.length*6.4+10),height:19,rx:7,fill:'#ffffff','fill-opacity':.94,stroke:'#dce7e7','stroke-width':.7}));
+  centerText(root,tx,ty,tag,'#175464',10);layer.appendChild(root);
+ }
+ // Las etiquetas de carretera aparecen al aumentar zoom para no saturar la vista general.
+ if(box.w<790){
+  const labels=isChain?mainRoadAnchors.filter(item=>{let ids=F.filter(f=>Number(f.properties.road)===item.road).map(f=>f.properties.id);return ids.some(id=>chainContribution(id,chainFocus)>0)}):mainRoadAnchors;
+  for(const {road,feature} of labels){const [x,y]=chainMidpoint(feature);const g=el('g',{transform:`translate(${x} ${y}) scale(${scale})`});
+   g.appendChild(el('rect',{x:-3,y:-23,width:52,height:19,rx:8,fill:'#fff','fill-opacity':.94,stroke:'#d4e3e3','stroke-width':.8}));centerText(g,3,-9,'RN '+road,'#144b58',11);layer.appendChild(g)}
+ }
+ if(box.w<340){
+  const ids=isChain?F.filter(f=>chainContribution(f.properties.id,chainFocus)>0).map(f=>f.properties.id):[...selected];
+  let count=0;for(const id of ids){if(count>=22)break;const f=byId.get(id);if(!f)continue;const [x,y]=chainMidpoint(f);
+   if(x<box.x+10||x>box.x+box.w-10||y<box.y+10||y>box.y+box.h-10)continue;
+   const g=el('g',{transform:`translate(${x} ${y}) scale(${scale})`});g.appendChild(el('rect',{x:-2,y:-17,width:42,height:16,rx:7,fill:'#fff',stroke:'#d7e5e6','stroke-width':.5}));centerText(g,3,-5,'#'+id,'#0a5060',10);layer.appendChild(g);count++;
+  }
+ }
+}
 // CARTO Positron raster uses OpenStreetMap data. Maps are only an optional
 // visual aid: the packaged vector fallback remains usable offline/if blocked.
 // The OSM-derived tiles are aligned in the SAME geographic projection as the
@@ -753,33 +798,46 @@ let baseLayerOpacity=.20;
 let mapProvider='open',externalTileErrors=0;
 function tileLat(y,z){let a=Math.PI*(1-2*y/(2**z));return 180/Math.PI*Math.atan(Math.sinh(a))}
 function tileLon(x,z){return x/(2**z)*360-180}
-function renderOpenBase(svg){
+// Las teselas se regeneran al nivel de resolución correspondiente al zoom.
+// Así se acerca cartografía REAL, no una imagen de baja resolución ampliada.
+function renderOpenBase(svg,box){
+ const prev=svg.querySelector('[data-layer="open-basemap"]');if(prev)prev.remove();
+ if(mapProvider!=='open')return;
  const g=el('g',{'data-layer':'open-basemap','pointer-events':'none'});
- // 8 gives nationwide coverage without excessive raster requests.
- const z=8, n=2**z;
- // Based on map extent and all road data. Tiles beyond the country help
- // provide surrounding coastline, neighbouring states and orientation.
- const lon0=-87.3,lon1=-82.0,lat0=7.6,lat1=11.6;
- const xt0=Math.floor((lon0+180)/360*n),xt1=Math.floor((lon1+180)/360*n);
+ const z=Math.max(8,Math.min(12,8+Math.round(Math.log2(950/box.w))));
+ const n=2**z,margin=30;
+ const revX=x=>(x-470)/(156*.9857034691)-84.2;
+ const revY=y=>9.7-(y-320)/156;
+ const l=Math.max(-180,revX(box.x-margin)),r=Math.min(180,revX(box.x+box.w+margin));
+ const bottom=Math.max(-85,revY(box.y+box.h+margin)),top=Math.min(85,revY(box.y-margin));
  const merc=lat=>Math.asinh(Math.tan(lat*Math.PI/180));
- const ty=lat=>Math.floor((1-merc(lat)/Math.PI)/2*n);
- const yt0=ty(lat1),yt1=ty(lat0);
- for(let x=xt0;x<=xt1;x++)for(let y=yt0;y<=yt1;y++){
-   let lt=tileLat(y,z),lb=tileLat(y+1,z);
-   let l=tileLon(x,z),r=tileLon(x+1,z);
-   let ul=proj([l,lt]),br=proj([r,lb]);
-   let tile=el('image',{x:ul[0],y:ul[1],width:br[0]-ul[0],height:br[1]-ul[1],
-      preserveAspectRatio:'none',opacity:baseLayerOpacity});
-   tile.setAttributeNS('http://www.w3.org/1999/xlink','href',`https://a.tile.openstreetmap.fr/osmfr/${z}/${x}/${y}.png`);
-   tile.addEventListener('error',()=>{tile.remove();externalTileErrors++;if(externalTileErrors>=2&&mapProvider==='open'){mapProvider='native';$('mapProvider').value='native';renderMap();}}, {once:true});
-   g.appendChild(tile);
+ const toY=lat=>Math.floor((1-merc(lat)/Math.PI)/2*n);
+ const xmin=Math.floor((l+180)/360*n),xmax=Math.floor((r+180)/360*n),ymin=toY(top),ymax=toY(bottom);
+ let tileCount=0;
+ for(let x=xmin;x<=xmax;x++)for(let y=ymin;y<=ymax;y++){
+  if(tileCount++>60)break;
+  const lt=tileLat(y,z),lb=tileLat(y+1,z),west=tileLon(x,z),east=tileLon(x+1,z);
+  const ul=proj([west,lt]),br=proj([east,lb]);
+  const image=el('image',{x:ul[0],y:ul[1],width:br[0]-ul[0],height:br[1]-ul[1],opacity:baseLayerOpacity,preserveAspectRatio:'none'});
+  image.setAttributeNS('http://www.w3.org/1999/xlink','href',`https://a.tile.openstreetmap.fr/osmfr/${z}/${x}/${y}.png`);
+  image.addEventListener('error',()=>{image.remove();}, {once:true});
+  g.appendChild(image);
  }
- // Underline the findings, do not let the basemap outcompete the road AAL.
- svg.appendChild(g);
+ svg.insertBefore(g,svg.children[1]||null);
+}
+let mapTileSignature='',chainTileSignature='';
+function updateTilesForMap(svg,box,chain=false){
+ if(mapProvider!=='open')return;
+ const z=Math.max(8,Math.min(12,8+Math.round(Math.log2(950/box.w))));
+ const key=[z,Math.round(box.x/(950/2**(z-8))),Math.round(box.y/(950/2**(z-8)))].join(':');
+ const previous=chain?chainTileSignature:mapTileSignature;
+ if(key!==previous||!svg.querySelector('[data-layer="open-basemap"]')){
+  renderOpenBase(svg,box);if(chain)chainTileSignature=key;else mapTileSignature=key;
+ }
 }
 function renderMap(){
  let svg=$('mapSvg'); svg.replaceChildren();
- renderBaseMap(svg); if(mapProvider==='open')renderOpenBase(svg);
+ renderBaseMap(svg); mapTileSignature=''; if(mapProvider==='open')renderOpenBase(svg,vb);
  let hasSelection=selected.size>0 && !overview;
  let chainFilter=view==='cadenas'&&chainFocus!=='all';
  let chain=chains.find(c=>c.id===chainFocus);
@@ -800,8 +858,10 @@ function renderMap(){
   hit.addEventListener('mousemove',e=>tip(e,`<b>ID_TRAMO ${p.id} · RN ${p.road}</b><br>AAL ${activeThreatName()}: ${compact(value)}<br>${p.routes.length} rutas logísticas<br><small>Clic para ${isSel?'quitar':'seleccionar'}</small>`));
   hit.addEventListener('mouseleave',hideTip);svg.appendChild(hit);
  }
+ decorateGeo(svg,vb,false);
 } 
-const baseVB={x:0,y:0,w:950,h:620}; let vb={...baseVB}; function setZoom(){ $('mapSvg').setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`)} function z(f){let cx=vb.x+vb.w/2,cy=vb.y+vb.h/2; vb.w=Math.min(950,Math.max(40,vb.w*f)); vb.h=vb.w*620/950; vb.x=cx-vb.w/2; vb.y=cy-vb.h/2; setZoom()} $('zoomIn').onclick=()=>z(.7); $('zoomOut').onclick=()=>z(1.3); $('home').onclick=()=>{vb={...baseVB}; setZoom()}; let drag=null; $('mapSvg').addEventListener('wheel',e=>{e.preventDefault(); z(e.deltaY>0?1.18:.85)},{passive:false}); $('mapSvg').addEventListener('pointerdown',e=>{if(e.target.classList.contains('routehit')) return; drag={x:e.clientX,y:e.clientY,bx:vb.x,by:vb.y}; $('mapSvg').setPointerCapture(e.pointerId)}); $('mapSvg').addEventListener('pointermove',e=>{if(!drag) return; const r=$('mapSvg').getBoundingClientRect(); vb.x=drag.bx-(e.clientX-drag.x)*vb.w/r.width; vb.y=drag.by-(e.clientY-drag.y)*vb.h/r.height; setZoom()}); $('mapSvg').addEventListener('pointerup',()=>drag=null);
+const baseVB={x:0,y:0,w:950,h:620}; let vb={...baseVB}; function setZoom(){ const svg=$('mapSvg');svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`);updateTilesForMap(svg,vb,false);decorateGeo(svg,vb,false)} function z(f){let cx=vb.x+vb.w/2,cy=vb.y+vb.h/2; vb.w=Math.min(950,Math.max(40,vb.w*f)); vb.h=vb.w*620/950; vb.x=cx-vb.w/2; vb.y=cy-vb.h/2; setZoom()} $('zoomIn').onclick=()=>z(.7); $('zoomOut').onclick=()=>z(1.3); $('home').onclick=()=>{vb={...baseVB}; setZoom()}; let drag=null; $('mapSvg').addEventListener('wheel',e=>{e.preventDefault(); z(e.deltaY>0?1.18:.85)},{passive:false}); $('mapSvg').addEventListener('pointerdown',e=>{if(e.target.classList.contains('routehit')) return; drag={x:e.clientX,y:e.clientY,bx:vb.x,by:vb.y}; $('mapSvg').setPointerCapture(e.pointerId)}); $('mapSvg').addEventListener('pointermove',e=>{if(!drag) return; const r=$('mapSvg').getBoundingClientRect(); vb.x=drag.bx-(e.clientX-drag.x)*vb.w/r.width; vb.y=drag.by-(e.clientY-drag.y)*vb.h/r.height; setZoom()}); $('mapSvg').addEventListener('pointerup',()=>drag=null);
+$('mainMapPlus').onclick=()=>$('zoomIn').click();$('mainMapMinus').onclick=()=>$('zoomOut').click();$('mainMapHome').onclick=()=>$('home').click();
 function toggle(id){ if(overview){selected=new Set([id]);overview=false;} else if(selected.has(id)) selected.delete(id); else selected.add(id); last=id; renderAll() }
 function topChapters(ids){
  const all=values('Capitulo Del Arancel',ids).filter(([n,v])=>v>0);
@@ -1074,12 +1134,12 @@ function chainContext(cid){
 }
 function chainZoomToPoint(point){let cx=point[0],cy=point[1];chainVB={x:cx-135,y:cy-90,w:270,h:180};chainSetZoom();}
 const chainBaseVB={x:0,y:0,w:950,h:620}; let chainVB={...chainBaseVB};
-function chainSetZoom(){$('chainMapSvg').setAttribute('viewBox',`${chainVB.x} ${chainVB.y} ${chainVB.w} ${chainVB.h}`)}
+function chainSetZoom(){const svg=$('chainMapSvg');svg.setAttribute('viewBox',`${chainVB.x} ${chainVB.y} ${chainVB.w} ${chainVB.h}`);updateTilesForMap(svg,chainVB,true);decorateGeo(svg,chainVB,true)}
 function chainZoom(mult,point){const svg=$('chainMapSvg');const r=svg.getBoundingClientRect();let x=chainVB.x+chainVB.w/2,y=chainVB.y+chainVB.h/2;if(point){x=chainVB.x+(point.clientX-r.left)/r.width*chainVB.w;y=chainVB.y+(point.clientY-r.top)/r.height*chainVB.h}const next=Math.min(950,Math.max(100,chainVB.w*mult));const ry=next/chainVB.w;chainVB={x:x-(x-chainVB.x)*ry,y:y-(y-chainVB.y)*ry,w:next,h:next*620/950};chainSetZoom()}
 function chainMidpoint(feature){let coords=feature.geometry.type==='LineString'?feature.geometry.coordinates:feature.geometry.coordinates.flat();return proj(coords[Math.floor(coords.length/2)]||coords[0])}
 function paintChainDetail(id){const p=byId.get(id)?.properties,host=$('chainSegmentDetail'); if(!p){host.textContent='Selecciona un tramo del mapa.';return}const contrib=chainContribution(id,chainFocus);const h=[['Fluvial',p.river],['Sísmica',p.quake],['Costera',p.coast]].sort((a,b)=>b[1]-a[1])[0];host.innerHTML=`<b>ID_TRAMO ${p.id} · Ruta Nacional ${p.road}</b><br>AAL total del tramo: <b>${compact(p.aal)}</b> · AAL atribuida a ${chainFocus==='all'?'la red':'la cadena'}: <b>${compact(contrib)}</b> · Amenaza dominante del tramo: <b>${h[0]}</b> (${pct(h[1],p.aal)}).`}
 function renderChainMap(){
- const svg=$('chainMapSvg');svg.replaceChildren();renderBaseMap(svg);
+ const svg=$('chainMapSvg');svg.replaceChildren();renderBaseMap(svg);chainTileSignature='';if(mapProvider==='open')renderOpenBase(svg,chainVB);
  const focus=chains.find(c=>c.id===chainFocus);
  const key=chainFocus;
  const feats=F.map(f=>({f,id:f.properties.id,val:chainContribution(f.properties.id,key)}));
@@ -1099,10 +1159,7 @@ function renderChainMap(){
   hit.addEventListener('mousemove',e=>tip(e,`<b>${c?.symbol||'◈'} ID_TRAMO ${id} · RN ${p.road}</b><br>AAL atribuida: ${compact(val)}<br>AAL del tramo: ${compact(metric(p))}<br>Afectación: ${chainClassify(metric(p)).name}<br>Clic para ver detalle`));hit.addEventListener('mouseleave',hideTip);svg.appendChild(hit);
   if(id===chainClickedSegment){svg.appendChild(el('path',{d,fill:'none',stroke:'#fff','stroke-width':thick+5,'stroke-linecap':'round','pointer-events':'none'}));svg.appendChild(el('path',{d,fill:'none',stroke:lineColor,'stroke-width':thick+1.5,'stroke-linecap':'round','pointer-events':'none'}));}
  }
- // Marcadores aduaneros basados en coordenadas conocidas (ubicación orientativa).
- const customs=[[-83.0345,9.99,'Limón'],[-84.8285,9.972,'Caldera'],[-85.614,11.213,'Peñas Blancas'],[-82.964,8.536,'Paso Canoas']];
- for(const [lon,lat,name] of customs){const [x,y]=proj([lon,lat]);const g=el('g',{'pointer-events':'none'});g.appendChild(el('circle',{cx:x,cy:y,r:11,fill:'#fff',stroke:'#0c6574','stroke-width':1.6}));const tt=el('text',{x,y:y+4,'font-size':12,'text-anchor':'middle',fill:'#0a6773'});tt.textContent='⚓';g.appendChild(tt);svg.appendChild(g)}
- svgText(svg,472,26,focus?`${focus.symbol} ${focus.name} · ${compact(chainContext(key).aal)} AAL`:'Cadenas de valor · principales tramos asociados',15,true,'#174651','middle');
+ decorateGeo(svg,chainVB,true);
  svg.setAttribute('viewBox',`${chainVB.x} ${chainVB.y} ${chainVB.w} ${chainVB.h}`);
  $('chainMapLegend').innerHTML=chainDisplayMode==='risk'?'Afectación por tramo: <b>rojo</b> extrema · <b>naranja</b> muy alta · <b>amarillo</b> alta · <b>verde</b> media/baja':'Colores por cadena; grosor según AAL atribuida. Líneas sobre la geometría vial real.';
  $('chainMapGuide').textContent=focus?`Se muestran ${eligible.length.toLocaleString('es-CO')} tramos vinculados a ${focus.name}. Selecciona uno en el mapa o en la lista para consultar su pérdida.`:'Vista de conjunto: cada tramo se colorea según la cadena con mayor AAL atribuida. Selecciona una cadena para ver todos sus tramos.';
@@ -1246,11 +1303,11 @@ $('removeRoads').onclick=()=>{if(!roadChecks.size)return;overview=false;for(cons
 $('threatSelect').onchange=()=>{activeThreat=$('threatSelect').value;$('threatChains').value=activeThreat;renderAll()};$('threatChains').onchange=()=>{activeThreat=$('threatChains').value;$('threatSelect').value=activeThreat;renderAll()};
 
 // Base map without credentials. The fully integrated vector map remains as fallback.
-$('mapProvider').addEventListener('change',e=>{mapProvider=e.target.value;externalTileErrors=0;renderMap()});
+$('mapProvider').addEventListener('change',e=>{mapProvider=e.target.value;externalTileErrors=0;renderMap();renderChainMap()});
 $('baseOpacity').addEventListener('input',e=>{
  baseLayerOpacity=Number(e.target.value)/100;
  $('baseOpacityValue').textContent=e.target.value+' %';
- document.querySelectorAll('#mapSvg [data-layer="open-basemap"] image').forEach(img=>img.setAttribute('opacity',baseLayerOpacity));
+ document.querySelectorAll('#mapSvg [data-layer="open-basemap"] image, #chainMapSvg [data-layer="open-basemap"] image').forEach(img=>img.setAttribute('opacity',baseLayerOpacity));
 });
 
 // V38 - Todas las cadenas: 96 capítulos arancelarios presentes en los datos BSA3.
